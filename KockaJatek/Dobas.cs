@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KockaJatek
 {
-    
+
     class Dobas
     {
+
         int[] kocka = new int[5];
         public void EgyDobas()
         {
@@ -18,16 +16,38 @@ namespace KockaJatek
                 kocka[i] = vel.Next(1, 7);
             }
         }
+
+        /* private string eredmeny;
+         public string Eredmeny { get 
+             {
+                 return eredmeny;
+             }
+         }*/
+
+        /*public Dobas(int k1, int k2, int k3, int k4, int k5)
+        {
+            kocka[0] = k1;
+            kocka[1] = k2;
+            kocka[2] = k3;
+            kocka[3] = k4;
+            kocka[4] = k5;
+
+            eredmeny = Erteke();
+        }*/
+
+
         public void Kiiras()
         {
             foreach (var i in kocka)
             {
                 Console.Write($"{i} ");
             }
-            Console.Write(":");
+            Console.WriteLine($": {Erteke()}");
+
+            
             
         }
-        public string Erteke()
+        private string Erteke()
         {
             Dictionary<int, int> eredmeny = new Dictionary<int, int>();
             for (int i = 1; i <= 6; i++)
@@ -86,8 +106,6 @@ namespace KockaJatek
                 return " kis sor";
             }
             else return " szemét";
-
-            
         }
     }
     
@@ -109,10 +127,12 @@ namespace KockaJatek
  *  * Key[6] == 0 Kissor
  *  * Key[1] == 0 Nagysor
  *  Minden más esetben moslék
- *  var result = from e in eredmeny
+ *  var result = (from e in eredmeny
  *               where e.Value > 1
- *               select new {Szam=e.Key, Db=e.Value};
- * foreach ezután, stb...
+ *               select new {Szam=e.Key, Db=e.Value}).ToList; *** A result ezután listaként funkcionál ***
+ * CWL($"Darab: {result.Count}"); pl: 5,5,2,6,1-nél darab: 1 5:2(ez foreach)
+ * string tömb alapján adunk vissza eredményt
+ * 
  *  
  *  (A fenti saját)
  */
